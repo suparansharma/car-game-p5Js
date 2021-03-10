@@ -15,7 +15,7 @@ class Obstacles
     show()
     {
         
-        fill(192,192,192);
+       // fill(192,192,192);
         rect(0,this.x1,this.x1,this.w);
         rect(1500-this.x2,this.x1,this.x2,this.w);
         

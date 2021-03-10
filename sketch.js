@@ -11,8 +11,9 @@ function setup()
 function draw()
 {
     background(50,100,150);
+    car.update();
     
-    car.show();
+    
     //console.log('update');
     for(let i=0;i<obs.length;i++)
     {
@@ -26,12 +27,13 @@ function draw()
     obs[i].show();
     
     }
+    
     if(frameCount % 30 == 0)
     {
         obs.push(new Obstacle());
     }
-    car.update();
     
+    car.show();
 
 }
 function keyPressed()
