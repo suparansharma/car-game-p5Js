@@ -1,55 +1,46 @@
-
+let obs = [];
 let car;
-let obs=[];
 
 function setup()
 {
-    createCanvas(1500,700);
-    
+    createCanvas(innerWidth,innerHeight);
     car=new Car();
-    obs.push(new Obstacles());
-    //obs=new Obstacles();
-
+    obs.push(new Obstacle());
 }
 
 function draw()
 {
-    background(100,200,300);
+    background(50,100,150);
+    
+    car.show();
+    //console.log('update');
     for(let i=0;i<obs.length;i++)
     {
-        if(obs[i].collides(car))
-        {
-            console.log('collision');
-            noLoop();
-        }
-    
-    obs[i].update();
+     obs[i].update();
+    if(obs[i].collides(car))
+    {
+        console.log('collision!');
+        noLoop;
+    }
+   
     obs[i].show();
-
-    if(obs[i].isOutOfScreen())
+    
+    }
+    if(frameCount % 30 == 0)
     {
-        obs.splice(i,1);
+        obs.push(new Obstacle());
     }
-
-    }
-    car.show();
-
-    if(frameCount % 100 == 0)
-    {
-        obs.push(new Obstacles());
-    }
+    car.update();
     
 
-    //car.update();
-    
 }
 function keyPressed()
 {
-    if(key == '.')
+    if(key =='.')
     {
         car.cright();
     }
-    else if(key == ',')
+    if(key == ',')
     {
         car.cleft();
     }
