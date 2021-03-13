@@ -4,7 +4,7 @@ class Obstacle {
         // this.y = 0;
         // this.x1 = random((width / 2) - 15, (width / 2) - (width / 4));
         // this.x2 = random((width / 2) - 15, (width / 2) - (width / 4));
-        this.x = random(width/2,width/4);
+        this.x = random(width / 1.2, width / 6);
         this.y = -10;
         this.w = 40;
         this.h = 55;
@@ -14,6 +14,12 @@ class Obstacle {
     show() {
         if (this.c == true) {
             fill(255, 0, 0);
+            textAlign(CENTER);
+            text("Game Over", width/2, height/2);
+            textSize(70);
+            textAlign(CENTER);
+            text(`Your score is ${frameCount}`, width/2, height/2+100);
+            textSize(50);
         } else {
             fill(0, 255, 0);
             // fill(random(255),random(255),random(255))
@@ -38,13 +44,13 @@ class Obstacle {
         // }
         if (car.x + car.w >= this.x &&
             car.x <= this.y + this.w &&
-            car.y + car.h>= this.y &&
-            car.y <= this.y+ this.h
-            ){
-                this.c = true;
-                return true;
-            }
-       
+            car.y + car.h >= this.y &&
+            car.y <= this.y + this.h
+        ) {
+            this.c = true;
+            return true;
+        }
+
 
     }
 }
