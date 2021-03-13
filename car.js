@@ -1,5 +1,5 @@
 class Car {
-    constructor(){
+    constructor() {
         this.x = width / 2;
         this.y = height / 2;
         this.r = 50;
@@ -14,29 +14,28 @@ class Car {
         rect(this.x, this.y, this.r, 100);
 
     }
-    update(){
+    update() {
         // this.velocity +=  this.gravity;
         // this.x = this.velocity;
-        this.velocity += this.gravity; 
-        this.x += this.velocity;
-        // console.log(this.velocity)
-        if(this.x > width - this.r ){
-            this.x = width - this.r;
-            this.velocity = 0;
-        }
-        if (this.x < this.r) {
-            this.x = this.r;
-            this.velocity = 0;
-        }
+        // this.velocity += this.gravity; 
+        // this.x += this.velocity;
+        // // console.log(this.velocity)
+        // if(this.x > width - this.r ){
+        //     this.x = width - this.r;
+        //     this.velocity = 0;
+        // }
+        // if (this.x < this.r) {
+        //     this.x = this.r;
+        //     this.velocity = 0;
+        // }
+        this.x += 0;
     }
-    up() {
-        this.velocity -= 5;
-    }
-    cright(){
-        this.velocity -= 10;
-    }
+
     cright() {
-        this.velocity += 10;
-        
+        this.x += 25;
+    }
+    cleft() {
+        this.x -= 25;
+
     }
 }

@@ -22,6 +22,7 @@ class Obstacle {
         this.y += 5;
     }
     collides(car) {
+        console.log("car",car.x,"x",this.x1)
         if (car.x < this.x1 || car.x > width - this.x2) {
             if (car.y > this.y && car.y < this.y + this.w) {
                 console.log(car.y, this.y)
@@ -29,5 +30,6 @@ class Obstacle {
                 return true;
             }
         }
+
     }
 }
