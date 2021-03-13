@@ -1,44 +1,33 @@
-
-
-let p;
-class Obstacle
-{
-    constructor()
-    {
-        this.w=500;
-        this.y= innerHeight-this.w;
-        this.x1=random(innerWidth/2);
-        this.x2=random(innerWidth/2)-50;
-        this.c=false;
+class Obstacle {
+    constructor() {
+        this.w = 40;
+        this.y = 0;
+        this.x1 = random((width / 2) - 15, (width / 2) - (width / 4));
+        this.x2 = random((width / 2) - 15, (width / 2) - (width / 4));
+        this.c = false;
     }
-
-    show()
-    {
-        rect(0,this.y,this.x2,100);
-        //rect(this.x1,this.y-200,100,100);
-        //circle(this.x1+200,this.y-200,50);
-
-        rect(innerWidth-this.x2,this.y,this.x2,100);
+    show() {
+        if (this.c == true) {
+            fill(255, 0, 0);
+        } else {
+            fill(0, 255, 0);
+            // fill(random(255),random(255),random(255))
+            stroke(0)
+            strokeWeight(8);
+        }
+        rect(0, this.y, this.x2, this.w);
+        rect(width - this.x2, this.y, this.x2, this.w);
     }
-    update()
-    {
-        this.y +=5;
+    update() {
+        this.y += 5;
     }
-    collides(car)
-    {
-        this.p=car.update();
-        console.log(this.p);
-        //console.log(this.x1);
-        //console.log(this.x2);
-        //if(car.x < innerWidth-this.x1 || car.x> innerWidth-this.x2)
-        {
-            if(car.x < this.x1 || car.x > this.x2+this.w)
-            {
-               // if(car.x> this.x1 && )
+    collides(car) {
+        if (car.x < this.x1 || car.x > width - this.x2) {
+            if (car.y > this.y && car.y < this.y + this.w) {
+                console.log(car.y, this.y)
                 this.c = true;
+                return true;
             }
-            
-
         }
     }
 }

@@ -1,49 +1,39 @@
-let obs = [];
 let car;
-
-function setup()
-{
-    createCanvas(innerWidth,innerHeight);
-    car=new Car();
+let obs = [];
+function setup(){
+    createCanvas(windowWidth, windowHeight - 100);
+    car = new Car();
     obs.push(new Obstacle());
 }
+function draw(){
+    background(71,72,76);
 
-function draw()
-{
-    background(50,100,150);
     car.update();
-    
-    
-    //console.log('update');
-    for(let i=0;i<obs.length;i++)
-    {
-     obs[i].update();
-    if(obs[i].collides(car))
-    {
-        console.log('collision!');
-        noLoop;
+    for (let i = 0; i < obs.length; i++) {
+        // const element = obs[i];
+        if(obs[i].collides(car)){
+            noLoop();
+        }
+        
+        obs[i].show();
+        obs[i].update();
+        
     }
-   
-    obs[i].show();
-    
-    }
-    
-    if(frameCount % 30 == 0)
-    {
+    if (frameCount % 70 == 0) {
+
+        // document.getElementById("point").innerText = frameCount;
         obs.push(new Obstacle());
     }
-    
     car.show();
-
 }
-function keyPressed()
-{
-    if(key =='.')
-    {
-        car.cright();
+function keyPressed(){
+    if (keyCode===ENTER) {
+        // car.cright();
+        console.log("right")
     }
-    if(key == ',')
-    {
-        car.cleft();
+    if (keyCode === LEFT_ARROW) {
+        // car.cleft();
+        console.log("left")
     }
+    
 }
