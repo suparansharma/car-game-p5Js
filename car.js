@@ -1,8 +1,9 @@
 class Car {
     constructor() {
         this.x = width / 2;
-        this.y = height / 2;
-        this.r = 50;
+        this.y = height /1.2;
+        this.w = 50;
+        this.h = 55,
         this.gravity = 0.25;
         this.velocity = 0;
     }
@@ -11,7 +12,8 @@ class Car {
         stroke(0)
         strokeWeight(4);
         // ellipse(this.x, this.y, this.r * 2);
-        rect(this.x, this.y, this.r, 100);
+        // rect(this.x, this.y, this.r, 100);
+        rect(this.x, this.y, this.w, this.h);
 
     }
     update() {
