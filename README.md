@@ -9,7 +9,7 @@ live site https://suparansharma.github.io/car-game-p5Js/
 - See the score
 - Move Easily
 
-##Technology Used:
+## Technology Used:
 
 - JavaScript
 - HTML
